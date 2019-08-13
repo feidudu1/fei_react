@@ -7,12 +7,12 @@ export default {
     total: null,
     page: null,
   },
-  reducers: {
+  reducers: { // 跟store相关
     save(state, { payload: { data: list, total, page } }) {
       return { ...state, list, total, page };
     },
   },
-  effects: {
+  effects: { // 跟server相关
     *fetch({ payload: { page = 1 } }, { call, put }) {
       const { data, headers } = yield call(usersService.fetch, { page });
       yield put({
