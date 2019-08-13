@@ -9,4 +9,6 @@ https://github.com/sorrycc/blog/issues/62
 快速上手，且没有用脚手架
 官网指南/快速上手
 https://umijs.org/zh/guide/getting-started.html
-##
+## umi_cli
+官网/用脚手架创建项目
+create-umi
