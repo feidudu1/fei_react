@@ -12,7 +12,6 @@ export default {
       dynamicImport: false,
       title: 'umi_cli',
       dll: false,
-      
       routes: {
         exclude: [
           /components\//,

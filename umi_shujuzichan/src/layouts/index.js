@@ -1,4 +1,5 @@
 import Link from 'umi/link'
+import withRouter from 'umi/withRouter';
 import style from './index.less';
 
 const screenSwitchInfo = [{
@@ -50,8 +51,10 @@ function BasicLayout(props) {
         <div className={style.rightBg3}></div>
         <a className={style.screenRightLinkTitle} href="http://www.baidu.com">资产管理</a>
       </div>
+      {props.children}
     </div>
   );
 }
 
 export default BasicLayout;
+// export default withRouter(BasicLayout);
