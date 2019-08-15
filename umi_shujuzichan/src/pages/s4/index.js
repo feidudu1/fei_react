@@ -16,34 +16,46 @@ import style from './index.less';
 //   topScale: (height - (1080 * scales)) / 2,
 //   scales,
 // };
- function S4({
+function S4({
    leftDepts,
    rightDepts,
    rightApps,
    leftData,
    rightData,
-   diamondData
+   diamondData,
+   options
  }) {
    return (
     
     <div className={`${style.main} s4Main`}>
-      <Tree leftDepts={leftDepts} rightDepts={rightDepts} rightApps={rightApps} leftData={leftData} rightData={rightData} options={this.options}/>
+      <Tree leftDepts={leftDepts} rightDepts={rightDepts} rightApps={rightApps} leftData={leftData} rightData={rightData}
+      options={options}
+      />
+      <div className={style.legend}></div>
     </div>
   );
 }
 
- function mapStateToProps(state) {
+function mapStateToProps(state) {
   const { leftDepts, rightDepts, rightApps, leftData, rightData, diamondData } = state.s4;
+  const { layout } = state.layout;
+  // console.log(3333666, layout);
+  const options = {
+    scales: layout.scales * 2,
+    leftScale: 0,
+    topScale: 0
+  }
   return {
     leftDepts,
     rightDepts,
     rightApps,
     leftData,
     rightData,
-    diamondData
+    diamondData,
+    options
   };
 }
 
 //  export default S4;
- export default connect(mapStateToProps)(S4);
+export default connect(mapStateToProps)(S4);
 //  export default withRouter(connect(mapStateToProps)(S4));

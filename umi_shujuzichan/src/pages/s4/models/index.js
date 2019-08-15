@@ -76,9 +76,7 @@ export default {
         cb(res.payload.diamondData)
       }
     },
-    *LeftStatus({payload: {nodeId}}, { call, put }) {
-      console.log(6666, nodeId);
-      
+    *LeftStatus({payload: {nodeId}}, { call, put }) {      
       const { data } = yield call(apiLeftStatus, {nodeId});
       yield put({
         type: 'saveLeftStatus',

@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="504px" height="99px" viewBox="0 0 504 99" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 54.1 (76490) - https://sketchapp.com -->
+    <title>编组 28</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <filter x="-11.9%" y="-114.9%" width="123.8%" height="329.8%" filterUnits="objectBoundingBox" id="filter-1">
+            <feOffset dx="0" dy="2" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="13" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.789854677 0" type="matrix" in="shadowBlurOuter1" result="shadowMatrixOuter1"></feColorMatrix>
+            <feMerge>
+                <feMergeNode in="shadowMatrixOuter1"></feMergeNode>
+                <feMergeNode in="SourceGraphic"></feMergeNode>
+            </feMerge>
+        </filter>
+        <text id="text-2" font-family="PingFangSC-Regular, PingFang SC" font-size="16" font-weight="normal" fill="#F9F9F9">
+            <tspan x="0" y="17">已连接</tspan>
+        </text>
+        <filter x="-14.6%" y="-22.7%" width="129.2%" height="163.6%" filterUnits="objectBoundingBox" id="filter-3">
+            <feOffset dx="0" dy="2" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="2" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.5 0" type="matrix" in="shadowBlurOuter1"></feColorMatrix>
+        </filter>
+        <text id="text-4" font-family="PingFangSC-Regular, PingFang SC" font-size="16" font-weight="normal" fill="#F9F9F9">
+            <tspan x="0" y="17">未连接</tspan>
+        </text>
+        <filter x="-14.6%" y="-22.7%" width="129.2%" height="163.6%" filterUnits="objectBoundingBox" id="filter-5">
+            <feOffset dx="0" dy="2" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="2" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.5 0" type="matrix" in="shadowBlurOuter1"></feColorMatrix>
+        </filter>
+        <text id="text-6" font-family="PingFangSC-Regular, PingFang SC" font-size="16" font-weight="normal" fill="#F9F9F9">
+            <tspan x="0" y="17">异常</tspan>
+        </text>
+        <filter x="-21.9%" y="-22.7%" width="143.8%" height="163.6%" filterUnits="objectBoundingBox" id="filter-7">
+            <feOffset dx="0" dy="2" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="2" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.5 0" type="matrix" in="shadowBlurOuter1"></feColorMatrix>
+        </filter>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="总体流向-2" transform="translate(-708.000000, -979.000000)">
+            <g id="编组-28" transform="translate(734.000000, 1003.000000)">
+                <g id="编组-18">
+                    <g id="图例" filter="url(#filter-1)">
+                        <rect id="矩形" fill="#00B9F8" opacity="0.292689732" x="0" y="0" width="453" height="47"></rect>
+                        <g id="编组-15">
+                            <g id="编组-16" stroke="#00B9F8" stroke-width="2">
+                                <path d="M22,46 L1,46 L1,1 L1,46 L1,1 L22,1" id="路径"></path>
+                                <path d="M28.3002486,1 L35.0772783,1" id="路径-30"></path>
+                                <path d="M28.306872,45.9529484 L35.0150683,45.9529484" id="路径-30复制"></path>
+                            </g>
+                            <g id="编组-16复制" transform="translate(434.000000, 23.500000) scale(-1, 1) translate(-434.000000, -23.500000) translate(416.000000, 0.000000)" stroke="#00B9F8" stroke-width="2">
+                                <path d="M22,46 L1,46 L1,1 L22,1" id="路径"></path>
+                                <path d="M28.3002486,1 L35.0772783,1" id="路径-30"></path>
+                                <path d="M28.306872,45.9529484 L35.0150683,45.9529484" id="路径-30复制"></path>
+                            </g>
+                            <rect id="矩形" fill="#00B9F8" x="0" y="0" width="8" height="46"></rect>
+                            <rect id="矩形复制-8" fill="#00B9F8" x="444" y="0" width="8" height="46"></rect>
+                        </g>
+                    </g>
+                </g>
+                <g id="编组-27" transform="translate(64.500000, 13.000000)">
+                    <g id="已连接" fill="#F9F9F9" fill-opacity="1">
+                        <use filter="url(#filter-3)" xlink:href="#text-2"></use>
+                        <use xlink:href="#text-2"></use>
+                    </g>
+                    <circle id="椭圆形" fill="#00B9F8" cx="61.5" cy="11.5" r="8.5"></circle>
+                </g>
+                <g id="编组-27复制" transform="translate(191.000000, 13.000000)">
+                    <g id="未连接" fill="#F9F9F9" fill-opacity="1">
+                        <use filter="url(#filter-5)" xlink:href="#text-4"></use>
+                        <use xlink:href="#text-4"></use>
+                    </g>
+                    <circle id="椭圆形" stroke="#00B9F8" stroke-width="2" opacity="0.800000012" cx="61.5" cy="11.5" r="7.5"></circle>
+                </g>
+                <g id="编组-27复制-2" transform="translate(333.500000, 13.000000)">
+                    <g id="异常" fill="#F9F9F9" fill-opacity="1">
+                        <use filter="url(#filter-7)" xlink:href="#text-6"></use>
+                        <use xlink:href="#text-6"></use>
+                    </g>
+                    <circle id="椭圆形" stroke="#D0021B" stroke-width="2" cx="45.5" cy="11.5" r="7.5"></circle>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

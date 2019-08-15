@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="268px" height="15px" viewBox="0 0 268 15" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 54.1 (76490) - https://sketchapp.com -->
+    <title>编组 21复制 7</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <rect id="path-1" x="0" y="0" width="268" height="15"></rect>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="编组-21复制-7">
+            <mask id="mask-2" fill="white">
+                <use xlink:href="#path-1"></use>
+            </mask>
+            <g id="蒙版"></g>
+            <g mask="url(#mask-2)">
+                <g transform="translate(0.000000, -247.000000)">
+                    <path d="M0.5,13.5 L0.5,261.5 L267.5,261.5 L267.5,13.5 L159.761863,13.5 L139.004971,0.591887789 L119.005229,13.5 L0.5,13.5 Z" id="矩形" stroke="#DCFB50" fill="#000000" transform="translate(134.000000, 131.000000) scale(1, -1) translate(-134.000000, -131.000000) "></path>
+                    <g id="编组-20" stroke="none" fill="none">
+                        <path d="M22,248 L22,1 L1,1 L1,248 L19.540231,248 L22,248 Z" id="路径" stroke="#DCFB50" stroke-width="2"></path>
+                        <path d="M28.306872,247.952948 L35.0150683,247.952948" id="路径-30复制" stroke="#DCFB50" stroke-width="2"></path>
+                    </g>
+                    <g id="编组-20复制" stroke="none" fill="none" transform="translate(250.000000, 124.500000) scale(-1, 1) translate(-250.000000, -124.500000) translate(232.000000, 0.000000)">
+                        <path d="M22,248 L22,1 L1,1 L1,248 L19.540231,248 L22,248 Z" id="路径" stroke="#DCFB50" stroke-width="2"></path>
+                        <path d="M28.306872,247.952948 L35.0150683,247.952948" id="路径-30复制" stroke="#DCFB50" stroke-width="2"></path>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

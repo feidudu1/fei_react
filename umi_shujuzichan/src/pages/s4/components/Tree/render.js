@@ -5,12 +5,9 @@ import textures from 'textures';
 function render(eleContainer, leftDepts, rightDepts, rightApps, leftData = {}, rightData = {}, options) {
   const {
     width = 1860,
-      height = 950,
-      itemMargin = 10, // 产业之间间隙
-      borderLineWidth = 1 // 产业和部门边线宽
+    height = 950,
+    itemMargin = 10, // 产业之间间隙
   } = {};
-  const topScale = options.topScale || 0
-  const leftScale = options.leftScale || 0
 
   // 颜色----------------------------------------------------------------------
   const colorMain10 = "rgba(0, 185, 248, 1)";
@@ -111,7 +108,8 @@ function render(eleContainer, leftDepts, rightDepts, rightApps, leftData = {}, r
     .append("svg")
     .attr({
       width: width,
-      height: height
+      height: height,
+      class: 'svgs4',
     });
   // 流入背景纹理-------------------------
   const texture1 = textures
@@ -284,15 +282,15 @@ function render(eleContainer, leftDepts, rightDepts, rightApps, leftData = {}, r
     shareInfo.map((t, i) => {
       if (i === 0) {
         t.target = {
-          y: 1315 * options.scales + leftScale,
-          x: 400 * options.scales + topScale
+          y: 1315,
+          x: 400
         };
         t.endAngle = Math.PI * 0.37,
           t.startAngle = Math.PI * 0.498
       } else if (i === 1) {
         t.target = {
-          y: 1315 * options.scales + leftScale,
-          x: 550 * options.scales + topScale
+          y: 1315,
+          x: 550
         };
         t.endAngle = Math.PI * 0.502,
           t.startAngle = Math.PI * 0.624
@@ -312,7 +310,6 @@ function render(eleContainer, leftDepts, rightDepts, rightApps, leftData = {}, r
   renderShareBtn() // 共享按钮
 
   // leftDepts相关渲染=============================================================
-  
   if (leftDepts && leftDepts.length) {
     renderLeftStatic()
   }
@@ -522,8 +519,6 @@ function render(eleContainer, leftDepts, rightDepts, rightApps, leftData = {}, r
   }
 
   // leftStatus相关渲染=============================================================
-  console.log(7777, leftData);
-  
   if (leftData && JSON.stringify(leftData) !== '{}') {
     renderLeftStatus()
   }
@@ -560,7 +555,7 @@ function render(eleContainer, leftDepts, rightDepts, rightApps, leftData = {}, r
         const flowin = {
           leftId: e.deptId
         }
-        triggerLeftMouseover(flowin, null, true);
+        triggerLeftMouseover(flowin, null, true, true);
       })
       .on("mouseout", e => {
         const flowin = {
@@ -658,14 +653,15 @@ function render(eleContainer, leftDepts, rightDepts, rightApps, leftData = {}, r
   }
   // 流入状态圈和线事件
   function bindLeftStatusHoverEvent() {
-    statusGroup
+    d3.selectAll('.leftPath')
+    // statusGroup
       .on("mouseover", e => {
         const flowin = {
           leftId: e.deptId,
           leftAccessStatus: e.accessStatus
         };
         const flowout = e.flowOut ? e.flowOut[typeName] : []
-        triggerLeftMouseover(flowin, flowout)
+        triggerLeftMouseover(flowin, flowout, false, false)
       })
       .on("mouseout", e => {
         const flowin = {
@@ -677,7 +673,7 @@ function render(eleContainer, leftDepts, rightDepts, rightApps, leftData = {}, r
       });
   }
   // 流入hover事件处理--------------------------------------------------------------------
-  function triggerLeftMouseover(flowin, flowout, showLink) {
+  function triggerLeftMouseover(flowin, flowout, showLink, isAll) {
     // 流入--------------------------
     let {
       leftId,
@@ -717,7 +713,7 @@ function render(eleContainer, leftDepts, rightDepts, rightApps, leftData = {}, r
       })
     // 流出-------------------------
     let shareTypeNum = [] // 存放有哪些共享，以让这些共享按钮高亮
-    if (flowout && flowout.length) {
+    if (flowout && flowout.length && isAll) {
       const flowoutById = {}; // 将流出一个部门对应两个共享的线安排在一起，展示两者的共同数据
       flowout.map(t => {
         const shareType = t.shareType
@@ -756,7 +752,7 @@ function render(eleContainer, leftDepts, rightDepts, rightApps, leftData = {}, r
               .style({
                 opacity: 1
               })
-          } else {
+          }else {
             d3.selectAll(`.scrollRight${shareTypeNum[0]}`)
               .selectAll(`.scrollItemRight${item[0][typeIdName]}`)
               .style({
@@ -774,7 +770,7 @@ function render(eleContainer, leftDepts, rightDepts, rightApps, leftData = {}, r
         })
     }
     shareTypeNum = [...new Set(shareTypeNum)]
-    if (shareTypeNum && shareTypeNum.length) {
+    if (shareTypeNum && shareTypeNum.length && isAll) {
       d3.selectAll(`.shareText`)
         .attr({
           fill: colorHighLight
@@ -865,12 +861,12 @@ function render(eleContainer, leftDepts, rightDepts, rightApps, leftData = {}, r
             d3.selectAll(`.scrollItemRightAll${item[0][typeIdName]}`).style({
               opacity: 0
             });
-          } else {
-            d3.selectAll(`.scrollRight${shareTypeNum[0]}`)
-              .selectAll(`.scrollItemRight${item[0][typeIdName]}`)
-              .style({
-                opacity: 0
-              });
+          }else {
+          d3.selectAll(`.scrollRight${shareTypeNum[0]}`)
+            .selectAll(`.scrollItemRight${item[0][typeIdName]}`)
+            .style({
+              opacity: 0
+            });
           }
         }
       }
@@ -901,7 +897,7 @@ function render(eleContainer, leftDepts, rightDepts, rightApps, leftData = {}, r
     }
   }
   // 流出hover事件处理--------------------------------------------------------------------
-  function triggerRightMouseover(flowout, isSingle) {
+  function triggerRightMouseover(flowout, isSingle, isAll) {
     let flowin
     // 流出--------------------------
     let {
@@ -948,7 +944,9 @@ function render(eleContainer, leftDepts, rightDepts, rightApps, leftData = {}, r
                 if (t.flowIn) {
                   data.push(...t.flowIn)
                 }
-                shareTypeNum.push(t.shareType)
+                if (t.shareType) {
+                  shareTypeNum.push(t.shareType)
+                }
               })
               const uniqueData = []
               data.map(t => {
@@ -977,7 +975,7 @@ function render(eleContainer, leftDepts, rightDepts, rightApps, leftData = {}, r
     }
 
     // 流入-------------------------
-    if (flowin && flowin.length) {
+    if (flowin && flowin.length && isAll) {
       flowin.map(t => {
         const leftId = t.deptId
         const leftAccessStatus = t.accessStatus
@@ -1020,6 +1018,7 @@ function render(eleContainer, leftDepts, rightDepts, rightApps, leftData = {}, r
             stroke: colorHighLight
           })
       })
+      
     }
   }
 
@@ -1142,7 +1141,6 @@ function render(eleContainer, leftDepts, rightDepts, rightApps, leftData = {}, r
           })
       })
     }
-
   }
   // 共享按钮hover事件
   function bindShareBtnEvent() {
@@ -1163,7 +1161,7 @@ function render(eleContainer, leftDepts, rightDepts, rightApps, leftData = {}, r
               rightAccessStatus: d.accessStatus,
               shareType: d.shareType
             };
-            triggerRightMouseover(flowout, true);
+            triggerRightMouseover(flowout, true, true);
           })
       })
       .on('mouseout', e => {
@@ -1509,7 +1507,7 @@ function render(eleContainer, leftDepts, rightDepts, rightApps, leftData = {}, r
         const flowout = {
           rightId: e[typeIdName]
         }
-        triggerRightMouseover(flowout);
+        triggerRightMouseover(flowout, false, true);
 
       })
       .on('mouseout', e => {
@@ -1607,7 +1605,8 @@ function render(eleContainer, leftDepts, rightDepts, rightApps, leftData = {}, r
         class: d => `leftStatusCircle leftStatusCircle${d.deptId}`,
         cx: 225,
         cy: (d, i) => {
-          return d.itemTop + 2 * 2 + 15.32 / 2 + subItemHeight * i;
+          d.circlePoint = d.itemTop + 2 * 2 + 15.32 / 2 + subItemHeight * i
+          return d.circlePoint;
         },
         r: 15.32 / 2,
         fill: d => {
@@ -1616,7 +1615,7 @@ function render(eleContainer, leftDepts, rightDepts, rightApps, leftData = {}, r
         stroke: d => {
           return colorStatusStroke[d.accessStatus];
         },
-        cursor: "pointer",
+        // cursor: "pointer",
         "stroke-width": 2,
         transform: (d, i) => {
           if (i === 0) {
@@ -1627,7 +1626,7 @@ function render(eleContainer, leftDepts, rightDepts, rightApps, leftData = {}, r
         }
       })
       .each(d => {
-        const path = getStatusPath(d.deptId);
+        const path = getStatusPath(d.deptId, d.circlePoint, d.index);
         leftStatusPathGroup[d.deptId] = path;
       });
     // 渲染流入线
@@ -1642,10 +1641,9 @@ function render(eleContainer, leftDepts, rightDepts, rightApps, leftData = {}, r
       cursor: d => {
         return d.accessStatus === 3 ? "" : "pointer";
       },
-      transform: `scale(${1 / options.scales}) translate(${-leftScale}, ${-topScale})`
     });
     // 渲染流入线上文字
-    d3.selectAll('.textScrollBlockLeft').remove()
+    d3.selectAll('.scrollLeft').remove()
     statusGroup
       .append("g")
       .call(d => {
@@ -1654,8 +1652,8 @@ function render(eleContainer, leftDepts, rightDepts, rightApps, leftData = {}, r
           const path = leftStatusPathGroup[id]
           const indexL = path.indexOf('L')
           const position = path.substring(1, indexL).split(',')
-          const x = (position[0] - leftScale) / options.scales + 10 * options.scales - 0
-          const y = (position[1] - topScale) / options.scales - 4 * options.scales - 0
+          const x = position[0] + 10
+          const y = position[1] - 4
           const group =
             d3.select('svg')
             .append('g')
@@ -1671,7 +1669,7 @@ function render(eleContainer, leftDepts, rightDepts, rightApps, leftData = {}, r
             .attr({
               x: x,
               y: y - 17,
-              width: 160 / options.scales,
+              width: 160,
               class: `rectText${id}`,
               height: 20,
               fill: 'red'
@@ -1686,8 +1684,9 @@ function render(eleContainer, leftDepts, rightDepts, rightApps, leftData = {}, r
           const TextDom1 = groupTextDom.append('text')
             .attr({
               class: `scrollItem scrollItemLeft scrollItemLeft${id}`,
+              // dx: x,
+              // dy: y,
               dx: 0,
-              // dx: -x * 0.5,
               dy: 0,
               'font-size': 14,
               // fill: 'red',
@@ -1708,7 +1707,7 @@ function render(eleContainer, leftDepts, rightDepts, rightApps, leftData = {}, r
               return textData.join('/')
             })
           if (len) {
-            if (len * 8 > (160 / options.scales)) {
+            if (len * 8 > 160) {
               const TextDom2 = groupTextDom.append('text')
                 .attr({
                   class: `scrollItem scrollItemLeft scrollItemLeft${id}`,
@@ -1733,17 +1732,13 @@ function render(eleContainer, leftDepts, rightDepts, rightApps, leftData = {}, r
                   return textData.join('/')
                 })
               const transformPath1 = `M${x - 0 + 180},${y}L${x - len * 8},${y}L${x - len * 8},${y - 20}L${x - 0 + 180},${y - 20}L${x - 0 + 180},${y}Z`
-              // const transformPath1 = `M${x - 0 + 180},${y}L${1.5 * x - len * 8},${y}L${1.5 * x - len * 8},${y - 20}L${1.5 * x - 0 + 180},${y - 20}L${1.5 * x - 0 + 180},${y}Z`
-              // const transformPath2 = `M${x - len * 8},${y}L${x - len * 8},${y}L${x + 180},${y}L${x - 180}, ${y + 20}L${x - 180}, ${y + 20}L${x - len * 8}, ${y + 20}Z`
-              // const transformPath2 = `M${x - len * 8},${y}L${x - len * 8},${y}L${0.5 * x},${y}L${0.5 * x }, ${y + 20}L${0.5 * x}, ${y + 20}L${x - len * 8}, ${y + 20}Z`
-              // const transformPath2 = `M${x - len * 8},${y}L${x - len * 8},${y}L${0.5 * x + 180},${y}L${0.5 * x + 180}, ${y + 20}L${0.5 * x + 180}, ${y + 20}L${x - len * 8}, ${y + 20}Z`
               const transformPath2 = `M${x - len * 8},${y + 20}L${x - len * 8},${y}L${x + 180}, ${y}L${x + 180}, ${y + 20}Z`
               TextDom1
                 .append('animateMotion')
                 .attr({
                   attributeName: 'transform',
                   path: transformPath1,
-                  dur: `${0.3 * len}s`,
+                  dur: `${0.8 * len}s`,
                   rotate: '180deg',
                   repeatCount: 'indefinite',
                 });
@@ -1752,7 +1747,7 @@ function render(eleContainer, leftDepts, rightDepts, rightApps, leftData = {}, r
                 .attr({
                   attributeName: 'transform',
                   path: transformPath2,
-                  dur: `${0.3 * len}s`,
+                  dur: `${0.8 * len}s`,
                   repeatCount: 'indefinite',
                 });
             } else {
@@ -1795,7 +1790,8 @@ function render(eleContainer, leftDepts, rightDepts, rightApps, leftData = {}, r
         },
         cx: 13,
         cy: (d, i) => {
-          return currentFlowoutItemTop + subItemHeight * i + 15.32 / 2 + 2 * 2;
+          d[0].circlePoint = currentFlowoutItemTop + subItemHeight * i + 15.32 / 2 + 2 * 2
+          return d[0].circlePoint;
         },
         r: 15.32 / 2,
         fill: d => {
@@ -1804,28 +1800,28 @@ function render(eleContainer, leftDepts, rightDepts, rightApps, leftData = {}, r
         stroke: d => {
           return colorStatusStroke[d[0].accessStatus];
         },
-        cursor: "pointer",
+        // cursor: "pointer",
         "stroke-width": 2,
         transform: `translate(${width - flowoutWidth}, 0)`
       })
       .each(d => {
-        getRightStatusPath(d[0][typeIdName])
+        getRightStatusPath(d[0][typeIdName], d[0].circlePoint)
       })
-    circleRight
-      .on('mouseover', e => {
-        const flowout = {
-          rightId: e[0][typeIdName],
-          rightAccessStatus: e[0].accessStatus
-        }
-        triggerRightMouseover(flowout)
-      })
-      .on('mouseout', e => {
-        const flowout = {
-          rightId: e[0][typeIdName],
-          rightAccessStatus: e[0].accessStatus
-        }
-        triggerRightMouseout(flowout)
-      })
+    // circleRight
+    //   .on('mouseover', e => {
+    //     const flowout = {
+    //       rightId: e[0][typeIdName],
+    //       rightAccessStatus: e[0].accessStatus
+    //     }
+    //     triggerRightMouseover(flowout)
+    //   })
+    //   .on('mouseout', e => {
+    //     const flowout = {
+    //       rightId: e[0][typeIdName],
+    //       rightAccessStatus: e[0].accessStatus
+    //     }
+    //     triggerRightMouseout(flowout)
+    //   })
     // 流出线
     const groupPathRight = groupRightStatusData
       .selectAll(".path")
@@ -1846,7 +1842,6 @@ function render(eleContainer, leftDepts, rightDepts, rightApps, leftData = {}, r
         },
         cursor: "pointer",
         "stroke-width": 2,
-        transform: `scale(${1 / options.scales}) translate(${-leftScale}, ${-topScale})`
       })
       .on("mouseover", e => {
         const flowout = {
@@ -1854,7 +1849,7 @@ function render(eleContainer, leftDepts, rightDepts, rightApps, leftData = {}, r
           rightAccessStatus: e.accessStatus,
           shareType: e.shareType
         };
-        triggerRightMouseover(flowout, true);
+        triggerRightMouseover(flowout, true, false);
       })
       .on("mouseout", e => {
         const flowout = {
@@ -1867,9 +1862,6 @@ function render(eleContainer, leftDepts, rightDepts, rightApps, leftData = {}, r
     // 渲染流出线上文字 单条线，只有服务共享或者数据共享------------------------------------------
     d3.selectAll(`.scrollRight`).remove()
     shareInfo.map(t => {
-      // if (t.shareType === 'data') {
-      //   return
-      // }
       d3.select('svg')
         .append('g')
         .attr({
@@ -1880,19 +1872,10 @@ function render(eleContainer, leftDepts, rightDepts, rightApps, leftData = {}, r
       const path = t.path
       const indexL = path.indexOf('L')
       const position = path.substring(1, indexL).split(',')
-      // const x = (position[0] - 160) * options.scales - leftScale
-      // const y = (position[1] - 26) * options.scales - topScale
-      const x = (position[0] - leftScale) / options.scales - 170 / options.scales
-      const y = (position[1] - topScale) / options.scales - 2 * options.scales
-      // const x = (position[0] - leftScale) / options.scales + 160 * options.scales
-      // const y = (position[1] - topScale) / options.scales - 26 * options.scales
-      // const x = (position[0] - leftScale) / options.scales - 160 * options.scales
-      // const y = (position[1] - topScale) / options.scales - 26 * options.scales
+      const x = position[0] - 170 
+      const y = position[1] - 2
       const shareType = t.shareType
       const id = t[typeIdName]
-      // if (shareType === 'data') {
-      //   return
-      // }
       const group = d3.selectAll(`.scrollRight${shareType}`)
       group.append('defs')
         .append('clipPath')
@@ -1903,7 +1886,7 @@ function render(eleContainer, leftDepts, rightDepts, rightApps, leftData = {}, r
         .attr({
           x: x,
           y: y - 16,
-          width: 170 / options.scales,
+          width: 170,
           class: `rectTextRight${shareType}${id}`,
           height: 20,
           fill: 'red'
@@ -1939,86 +1922,84 @@ function render(eleContainer, leftDepts, rightDepts, rightApps, leftData = {}, r
           textData = textData.join('/')
           return textData
         })
-      if (len) {
-        if (len * 8 > (170 / options.scales)) {
-          const TextDom2 = groupTextDom.append('text')
-            .attr({
-              class: `scrollItem scrollItemRight scrollItemRight${id}`,
-              dx: 0,
-              // dx: -x * 0.5,
-              dy: -20,
-              'font-size': 14,
-              // fill: 'red',
-              fill: colorHighLight,
-            })
-            .style({
-              opacity: 0
-            })
-            .text(() => {
-              if (!t.data) {
-                return
-              }
-              let textData = []
-              t.data.map((tt, ii) => {
-                textData.push(`${tt.value}${tt.unit}${tt.name}`)
+        if (len) {
+          if (len * 8 > 170) {
+            const TextDom2 = groupTextDom.append('text')
+              .attr({
+                class: `scrollItem scrollItemRight scrollItemRight${id}`,
+                dx: 0,
+                // dx: -x * 0.5,
+                dy: -20,
+                'font-size': 14,
+                // fill: 'red',
+                fill: colorHighLight,
               })
-              len = countnums(textData.join('/'))
-              textData = textData.join('/')
-              return textData
-            })
-          const transformPath1 = `M${x + 180 / options.scales},${y}L${x - len * 8},${y}L${x - len * 8},${y - 20}L${x + 180 / options.scales},${y - 20}L${x + 180 / options.scales},${y}Z`
-          const transformPath2 = `M${x - len * 8},${y + 20}L${x - len * 8},${y}L${x + 180 / options.scales}, ${y}L${x + 180 / options.scales}, ${y + 20}Z`
-          TextDom1
-            .append('animateMotion')
-            .attr({
-              attributeName: 'transform',
-              path: transformPath1,
-              dur: `${0.3 * len}s`,
-              rotate: '180deg',
-              repeatCount: 'indefinite',
-            });
-          TextDom2
-            .append('animateMotion')
-            .attr({
-              attributeName: 'transform',
-              path: transformPath2,
-              dur: `${0.3 * len}s`,
-              repeatCount: 'indefinite',
-            });
-        } else {
-          TextDom1
-            .attr({
-              dx: x,
-              // dx: -x * 0.5,
-              dy: y,
-            });
+              .style({
+                opacity: 0
+              })
+              .text(() => {
+                if (!t.data) {
+                  return
+                }
+                let textData = []
+                t.data.map((tt, ii) => {
+                  textData.push(`${tt.value}${tt.unit}${tt.name}`)
+                })
+                len = countnums(textData.join('/'))
+                textData = textData.join('/')
+                return textData
+              })
+            const transformPath1 = `M${x + 180},${y}L${x - len * 8},${y}L${x - len * 8},${y - 20}L${x + 180},${y - 20}L${x + 180},${y}Z`
+            const transformPath2 = `M${x - len * 8},${y + 20}L${x - len * 8},${y}L${x + 180}, ${y}L${x + 180}, ${y + 20}Z`
+            TextDom1
+              .append('animateMotion')
+              .attr({
+                attributeName: 'transform',
+                path: transformPath1,
+                // dur: `30s`,
+                dur: `${0.8 * len}s`,
+                rotate: '180deg',
+                repeatCount: 'indefinite',
+              });
+            TextDom2
+              .append('animateMotion')
+              .attr({
+                attributeName: 'transform',
+                path: transformPath2,
+                // dur: `30s`,
+                dur: `${0.8 * len}s`,
+                repeatCount: 'indefinite',
+              });
+          } else {
+            TextDom1
+              .attr({
+                dx: x,
+                // dx: -x * 0.5,
+                dy: y,
+              });
+          }
         }
-      }
     })
     // 渲染流出线上文字 按照部门合并------------------------------------------
     d3.selectAll(`.scrollRightAll`).remove()
+    d3.select('svg')
+      .append('g')
+      .attr({
+        class: `scrollRight scrollRightAll`
+      })
     renderFlowoutPathTextAll()
-
+    
     function renderFlowoutPathTextAll() {
       RightStatusDataByDeptsAppsArr.map(t => {
         const pathData = rightStatusPathGroup.find(tt => tt[typeIdName] === t[0][typeIdName])
         if (pathData) {
           const path = pathData.path
           const position = path.substring(1, path.indexOf('L')).split(',')
-          // const x = (position[0] - leftScale) / options.scales - 160 * options.scales
-          // const y = (position[1] - topScale) / options.scales - 26 * options.scales
-          const x = (position[0] - leftScale) / options.scales - 170 / options.scales
-          const y = (position[1] - topScale) / options.scales - 2 * options.scales
-          // const x = (position[0] - leftScale) / options.scales - 160 * options.scales
-          // const y = (position[1] - topScale) / options.scales - 26 * options.scales
+          const x = position[0] - 170
+          const y = position[1] - 2
           const id = t[0][typeIdName]
-          const group =
-            d3.select('svg')
-            .append('g')
-            .attr({
-              class: `scrollRight scrollRightAll`
-            })
-          svg.append('defs')
+          const group = d3.selectAll('.scrollRightAll')
+          group.append('defs')
             .append('clipPath')
             .attr({
               id: `se-transitionRightAll${id}`,
@@ -2027,7 +2008,7 @@ function render(eleContainer, leftDepts, rightDepts, rightApps, leftData = {}, r
             .attr({
               x: x,
               y: y - 16,
-              width: 170 / options.scales,
+              width: 170,
               class: `rectTextRightAll${id}`,
               height: 20,
               fill: 'red'
@@ -2042,6 +2023,7 @@ function render(eleContainer, leftDepts, rightDepts, rightApps, leftData = {}, r
             .attr({
               class: `scrollItem scrollItemRightAll scrollItemRightAll${id}`,
               dx: 0,
+              // dx: x,
               // dx: -x * 0.5,
               dy: 0,
               'font-size': 14,
@@ -2067,7 +2049,7 @@ function render(eleContainer, leftDepts, rightDepts, rightApps, leftData = {}, r
               return textData
             })
           if (len) {
-            if (len * 8 > (170 / options.scales)) {
+            if (len * 8 > 170) {
               const TextDom2 = groupTextDom.append('text')
                 .attr({
                   class: `scrollItem scrollItemRightAll scrollItemRightAll${id}`,
@@ -2095,14 +2077,15 @@ function render(eleContainer, leftDepts, rightDepts, rightApps, leftData = {}, r
                   len = countnums(textData)
                   return textData
                 })
-              const transformPath1 = `M${x+ 180 / options.scales},${y}L${x - len * 8},${y}L${x - len * 8},${y - 20}L${x + 180 / options.scales},${y - 20}L${x + 180 / options.scales},${y}Z`
-              const transformPath2 = `M${x - len * 8},${y + 20}L${x - len * 8},${y}L${x + 180 / options.scales}, ${y}L${x + 180 / options.scales}, ${y + 20}Z`
+              const transformPath1 = `M${x+ 180},${y}L${x - len * 8},${y}L${x - len * 8},${y - 20}L${x + 180},${y - 20}L${x + 180},${y}Z`
+              const transformPath2 = `M${x - len * 8},${y + 20}L${x - len * 8},${y}L${x + 180}, ${y}L${x + 180}, ${y + 20}Z`              
               TextDom1
                 .append('animateMotion')
                 .attr({
                   attributeName: 'transform',
                   path: transformPath1,
-                  dur: `${0.3 * len}s`,
+                  // dur: `${0.3 * len}s`,
+                  dur: `${0.8 * len}s`,
                   rotate: '180deg',
                   repeatCount: 'indefinite',
                 });
@@ -2111,7 +2094,8 @@ function render(eleContainer, leftDepts, rightDepts, rightApps, leftData = {}, r
                 .attr({
                   attributeName: 'transform',
                   path: transformPath2,
-                  dur: `${0.3 * len}s`,
+                  // dur: `${0.3 * len}s`,
+                  dur: `${0.8 * len}s`,
                   repeatCount: 'indefinite',
                 });
             } else {
@@ -2224,7 +2208,6 @@ function render(eleContainer, leftDepts, rightDepts, rightApps, leftData = {}, r
     typeIdName = ['deptId', 'appId'][triggerType]
     typeName = ["depts", "apps"][triggerType];
     idArr = []
-    itemTopFlowout = (height - currentFlowoutItemNum * subItemHeight) / 2;
   }
   // 流入切换分布按钮后重设当前页面 动态页面
   function getCurrentRightStatus() {
@@ -2245,7 +2228,7 @@ function render(eleContainer, leftDepts, rightDepts, rightApps, leftData = {}, r
       currentPageFlowout * rightItemNum
     );
     currentFlowoutItemNum = currentRightStatusDataByDeptsAppsArr.length;
-
+    itemTopFlowout = (height - currentFlowoutItemNum * subItemHeight) / 2;
   }
   // 流出处理数据
   function getRightListData() {
@@ -2274,17 +2257,17 @@ function render(eleContainer, leftDepts, rightDepts, rightApps, leftData = {}, r
       t.totalPage = t.totalPage || Math.ceil(t.depts.length / deptItemNum);
       t.depts.map(tt => {
         tt.itemTop = (itemHeight - subItemHeight * deptItemNum) / 2;
+        tt.index = i
       });
     });
   }
   // 生成左边连接线
-  function getStatusPath(id) {
-    const dom = [...document.querySelectorAll(`.leftStatusCircle${id}`)][0];
-    const x = dom.getBoundingClientRect().x - 16 * options.scales;
-    const y = dom.getBoundingClientRect().y - 93 * options.scales;
+  function getStatusPath(id, circlePoint, index) {
+    const x = 225 + (15.32 / 2);
+    const y = circlePoint + (index * (itemHeight + itemMargin))
     const target = {
-      y: 630 * options.scales + leftScale,
-      x: 482 * options.scales + topScale
+      y: 630,
+      x: 482
     };
     const item = `M${x},${y}L${x + 130},${y}${diagonal({
       source: {
@@ -2296,12 +2279,9 @@ function render(eleContainer, leftDepts, rightDepts, rightApps, leftData = {}, r
     return item;
   }
   // 生成右边连线
-  function getRightStatusPath(id) {
-    const dom = [
-      ...document.querySelectorAll(`.rightStatusCircleDptid${id}`)
-    ][0];
-    const x = dom.getBoundingClientRect().x - 30 * options.scales;
-    const y = dom.getBoundingClientRect().y - 93 * options.scales;
+  function getRightStatusPath(id, circlePoint) {
+    const x = width - flowoutWidth + 13
+    const y = circlePoint
     let item;
     RightStatusDataByDeptsAppsObject[id].map((t, i) => {
       const shareInfoTarget = shareInfo.find((d) => d.shareType === t.shareType)
@@ -2331,7 +2311,8 @@ function render(eleContainer, leftDepts, rightDepts, rightApps, leftData = {}, r
       .enter()
       .append("div")
       .attr({
-        class: "analyzeItem"
+        class: "analyzeItem",
+        
       })
       .text(d => d.name);
     d3.selectAll('.tooltip')
@@ -2345,10 +2326,10 @@ function render(eleContainer, leftDepts, rightDepts, rightApps, leftData = {}, r
       })
       .text(d => d.value + d.unit);
     d3.selectAll(".tooltip").style({
-      left: d3.event.offsetX + "px",
-      top: d3.event.offsetY + "px",
+      left: d3.event.offsetX * 2 + "px",
+      top: d3.event.offsetY * 2 + "px",
       opacity: 1,
-      transform: "translate(-50%, -110%)"
+      transform: "translate(-50%, -110%) scale(2)"
     });
   }
 
@@ -2398,8 +2379,11 @@ function render(eleContainer, leftDepts, rightDepts, rightApps, leftData = {}, r
     currentPageFlowout = [rightDeptCurrentPage, rightAppCurrentPage][
       triggerType
     ];
-  }
-
+  }  
+  d3.select('.svgs4').attr({
+    transform: `scale(2)`,
+    'transform-origin': '0px 0px'
+  })
 }
 
 export default render;
