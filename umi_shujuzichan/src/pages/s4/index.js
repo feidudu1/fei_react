@@ -1,21 +1,9 @@
 import { connect } from 'dva';
 import withRouter from 'umi/withRouter'
-// import { routerRedux } from 'dva/router';
-// import styles from './Users.css';
-// import { PAGE_SIZE } from '../constants';
 import Tree from './components/Tree/index'
+import MiddleDiamond from './components/MiddleDiamond/index'
 import style from './index.less';
-// const width = document.documentElement.clientWidth;
-// const height = document.documentElement.clientHeight;
-// const visual = width / height;
-// const visualFil = 3840 / 2160;
-// const connfirm = visual > visualFil;
-// const scales = connfirm ? height / 1080 : width / 1920;
-// const options = {
-//   leftScale: (width - (1920 * scales)) / 2,
-//   topScale: (height - (1080 * scales)) / 2,
-//   scales,
-// };
+
 function S4({
    leftDepts,
    rightDepts,
@@ -31,6 +19,12 @@ function S4({
       <Tree leftDepts={leftDepts} rightDepts={rightDepts} rightApps={rightApps} leftData={leftData} rightData={rightData}
       options={options}
       />
+      <MiddleDiamond
+        // getMoveStatus={this.getMoveStatus}
+        // getNodeId={this.getNodeId}
+        diamond={diamondData}
+        // leftTop={this.options}
+        />
       <div className={style.legend}></div>
     </div>
   );
