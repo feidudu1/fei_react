@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="1920px" height="1080px" viewBox="0 0 1920 1080" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 54.1 (76490) - https://sketchapp.com -->
+    <title>部门情况复制 2</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <radialGradient cx="40.3276597%" cy="30.4511032%" fx="40.3276597%" fy="30.4511032%" r="148.276017%" gradientTransform="translate(0.403277,0.304511),scale(0.562500,1.000000),rotate(49.401183),translate(-0.403277,-0.304511)" id="radialGradient-1">
+            <stop stop-color="#071063" offset="0%"></stop>
+            <stop stop-color="#010112" offset="100%"></stop>
+        </radialGradient>
+        <linearGradient x1="-93.8855673%" y1="50%" x2="151.16603%" y2="50%" id="linearGradient-2">
+            <stop stop-color="#71778C" offset="0%"></stop>
+            <stop stop-color="#06A9FF" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="0%" y1="50%" x2="100%" y2="50%" id="linearGradient-3">
+            <stop stop-color="#2F50D2" offset="0%"></stop>
+            <stop stop-color="#06CBFF" stop-opacity="0" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="0%" y1="50%" x2="100%" y2="50%" id="linearGradient-4">
+            <stop stop-color="#2F50D2" offset="0%"></stop>
+            <stop stop-color="#06CBFF" stop-opacity="0" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="-93.8855673%" y1="50%" x2="151.16603%" y2="50%" id="linearGradient-5">
+            <stop stop-color="#2F50D2" offset="0%"></stop>
+            <stop stop-color="#06CBFF" offset="100%"></stop>
+        </linearGradient>
+        <path d="M2,0 L1153,0 C1154.10457,-2.02906125e-16 1155,0.8954305 1155,2 L1155,44 C1155,45.1045695 1154.10457,46 1153,46 L2,46 C0.8954305,46 1.3527075e-16,45.1045695 0,44 L0,2 C-1.3527075e-16,0.8954305 0.8954305,2.02906125e-16 2,0 Z" id="path-6"></path>
+        <linearGradient x1="0%" y1="50%" x2="100%" y2="50%" id="linearGradient-8">
+            <stop stop-color="#2F50D2" offset="0%"></stop>
+            <stop stop-color="#06CBFF" stop-opacity="0" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="0%" y1="50%" x2="100%" y2="50%" id="linearGradient-9">
+            <stop stop-color="#2F50D2" offset="0%"></stop>
+            <stop stop-color="#06CBFF" stop-opacity="0" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="0%" y1="50%" x2="100%" y2="50%" id="linearGradient-10">
+            <stop stop-color="#2F50D2" offset="0%"></stop>
+            <stop stop-color="#06CBFF" stop-opacity="0" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="部门情况复制-2" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <rect fill="#000000" x="0" y="0" width="1920" height="1080"></rect>
+        <g id="背景" opacity="0.5" fill="url(#radialGradient-1)">
+            <rect id="矩形" x="0" y="0" width="1920" height="1080"></rect>
+        </g>
+        <g id="背景框" transform="translate(30.000000, 160.000000)" fill="url(#linearGradient-2)" fill-opacity="0.5" opacity="0.200000003">
+            <g id="分组-7">
+                <polygon id="Rectangle-9" points="0 1.92987987e-16 670 1.92987987e-16 670 890 0 890"></polygon>
+            </g>
+        </g>
+        <g id="当周更新表列表" transform="translate(1247.000000, 309.000000)">
+            <g id="小标题">
+                <g id="Group-3">
+                    <g id="Group">
+                        <polygon id="Rectangle-6" fill="url(#linearGradient-3)" fill-rule="nonzero" opacity="0.400000006" points="3 0 642 0 642 32 3 32"></polygon>
+                        <rect id="Rectangle" fill="#DCFB50" x="0" y="0" width="3" height="32"></rect>
+                    </g>
+                </g>
+            </g>
+        </g>
+        <g id="数据表质量排名" transform="translate(730.000000, 649.000000)">
+            <g id="数据表TOP8">
+                <g id="小标题">
+                    <polygon id="Rectangle-6" fill="url(#linearGradient-4)" fill-rule="nonzero" opacity="0.400000006" points="0 0 365 0 365 32 0 32"></polygon>
+                    <rect id="Rectangle" fill="#DCFB50" x="0" y="0" width="3" height="32"></rect>
+                </g>
+            </g>
+        </g>
+        <g id="二级导航栏" transform="translate(30.000000, 90.000000)">
+            <g id="装饰框">
+                <path d="M2,1 C1.44771525,1 1,1.44771525 1,2 L1,48 C1,48.5522847 1.44771525,49 2,49 L1858,49 C1858.55228,49 1859,48.5522847 1859,48 L1859,2 C1859,1.44771525 1858.55228,1 1858,1 L2,1 Z" id="矩形-copy" stroke="#00B9F8" stroke-width="2" fill-opacity="0.5" fill="url(#linearGradient-5)" opacity="0.300000012"></path>
+                <g id="Bitmap" style="mix-blend-mode: lighten;" transform="translate(703.000000, 2.000000)">
+                    <g>
+                        <mask id="mask-7" fill="white">
+                            <use xlink:href="#path-6"></use>
+                        </mask>
+                        <g id="Mask"></g>
+                    </g>
+                </g>
+            </g>
+        </g>
+        <g id="数量波动趋势" transform="translate(1125.000000, 649.000000)">
+            <g id="分组-9">
+                <g id="分组">
+                    <polygon id="Rectangle-6" fill="url(#linearGradient-8)" fill-rule="nonzero" opacity="0.400000006" points="0 0 765 0 765 32 0 32"></polygon>
+                    <rect id="Rectangle" fill="#DCFB50" x="0" y="0" width="3" height="32"></rect>
+                </g>
+            </g>
+        </g>
+        <g id="接入数据趋势" transform="translate(60.000000, 749.000000)">
+            <g id="小标题">
+                <polygon id="Rectangle-6" fill="url(#linearGradient-9)" fill-rule="nonzero" opacity="0.400000006" points="0 0 610 0 610 32 0 32"></polygon>
+                <rect id="Rectangle-Copy" fill="#DCFB50" x="0" y="0" width="3" height="32"></rect>
+            </g>
+        </g>
+        <g id="数据质量概况" transform="translate(60.000000, 190.000000)">
+            <g id="小标题">
+                <rect id="Rectangle-6" fill="url(#linearGradient-9)" fill-rule="nonzero" opacity="0.400000006" x="0" y="0" width="610" height="32"></rect>
+                <rect id="Rectangle" fill="#DCFB50" x="0" y="0" width="3" height="32"></rect>
+            </g>
+            <g id="雷达图" transform="translate(130.000000, 119.000000)">
+                <g id="Group-16">
+                    <g id="分组-3">
+                        <g id="分组-4" transform="translate(26.000000, 30.000000)"></g>
+                    </g>
+                </g>
+            </g>
+        </g>
+        <g id="表数据量占比" transform="translate(730.000000, 309.000000)">
+            <g id="数据来源类型数">
+                <g id="小标题">
+                    <g id="Group-3">
+                        <g id="Group">
+                            <polygon id="Rectangle-6" fill="url(#linearGradient-10)" fill-rule="nonzero" opacity="0.400000006" points="0 0 487 0 487 32 0 32"></polygon>
+                            <rect id="Rectangle" fill="#DCFB50" x="0" y="0" width="3.19266055" height="32"></rect>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

@@ -4,7 +4,8 @@ export default {
   treeShaking: true,
   proxy: {
     "/api": {
-      "target": "http://10.70.119.181:18081/indicator/v1/",
+      "target": "http://192.168.221.9:8082/indicator/v1/",
+      // "target": "http://10.70.119.181:18081/indicator/v1/",
       "changeOrigin": true,
       "pathRewrite": {
         "^/api": ""

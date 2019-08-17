@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>分组 42</title>
+    <defs>
+        <linearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="linearGradient-1">
+            <stop stop-color="#0034FF" stop-opacity="0" offset="0%"></stop>
+            <stop stop-color="#05AEFF" offset="56.8980311%"></stop>
+            <stop stop-color="#06CBFF" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="总体情况" transform="translate(-1854.000000, -1066.000000)">
+            <g id="分组-42" transform="translate(1854.000000, 1066.000000)">
+                <g id="分组" transform="translate(0.000000, 0.349660)">
+                    <polygon id="Fill-1" fill="url(#linearGradient-1)" fill-rule="nonzero" opacity="0.800000012" points="108.526457 0 0 96.9095805 411.066885 96.9095805 519.593342 0"></polygon>
+                    <polygon id="Fill-2" fill="#027399" points="520.526457 0 412 96.9095805 414.550189 103.709888 523.075878 6.8010777"></polygon>
+                    <polygon id="Fill-3" fill="#73DBFF" points="0 96 2.54942094 102.800307 413.617842 102.800307 411.066885 96"></polygon>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

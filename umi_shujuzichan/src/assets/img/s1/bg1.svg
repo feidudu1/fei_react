@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="1920px" height="1080px" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <defs>
+        <radialGradient cx="40.3276597%" cy="30.4511032%" fx="40.3276597%" fy="30.4511032%" r="148.276017%" gradientTransform="translate(0.403277,0.304511),scale(0.562500,1.000000),rotate(49.401183),translate(-0.403277,-0.304511)" id="radialGradient-1">
+            <stop stop-color="#071063" offset="0%"></stop>
+            <stop stop-color="#010112" offset="100%"></stop>
+        </radialGradient>
+        <linearGradient x1="-93.8855673%" y1="50%" x2="151.16603%" y2="50%" id="linearGradient-2">
+            <stop stop-color="#71778C" offset="0%"></stop>
+            <stop stop-color="#06A9FF" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="0%" y1="50%" x2="100%" y2="50%" id="linearGradient-3">
+            <stop stop-color="#2F50D2" offset="0%"></stop>
+            <stop stop-color="#06CBFF" stop-opacity="0" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="0%" y1="50%" x2="100%" y2="50%" id="linearGradient-4">
+            <stop stop-color="#2F50D2" offset="0%"></stop>
+            <stop stop-color="#06CBFF" stop-opacity="0" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="0%" y1="50%" x2="100%" y2="50%" id="linearGradient-5">
+            <stop stop-color="#2F50D2" offset="0%"></stop>
+            <stop stop-color="#06CBFF" stop-opacity="0" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="0%" y1="50%" x2="100%" y2="50%" id="linearGradient-6">
+            <stop stop-color="#2F50D2" offset="0%"></stop>
+            <stop stop-color="#06CBFF" stop-opacity="0" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="0%" y1="50%" x2="100%" y2="50%" id="linearGradient-7">
+            <stop stop-color="#2F50D2" offset="0%"></stop>
+            <stop stop-color="#06CBFF" stop-opacity="0" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="-93.8855673%" y1="50%" x2="151.16603%" y2="50%" id="linearGradient-8">
+            <stop stop-color="#2F50D2" offset="0%"></stop>
+            <stop stop-color="#06CBFF" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="总体概览" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <rect fill="#000000" x="0" y="0" width="1920" height="1080"></rect>
+        <g id="背景" opacity="0.5" fill="url(#radialGradient-1)">
+            <rect id="矩形" x="0" y="0" width="1920" height="1080"></rect>
+        </g>
+        <g id="背景框" transform="translate(30.000000, 160.000000)" fill="url(#linearGradient-2)" fill-opacity="0.5" opacity="0.200000003">
+            <g id="分组-7">
+                <polygon id="Rectangle-9" points="0 1.92987987e-16 670 1.92987987e-16 670 890 0 890"></polygon>
+            </g>
+        </g>
+        <polygon id="Rectangle-6" fill="url(#linearGradient-3)" fill-rule="nonzero" opacity="0.400000006" points="1525 649 1890 649 1890 681 1525 681"></polygon>
+        <rect id="Rectangle" fill="#DCFB50" x="1525" y="649" width="3" height="32"></rect>
+        <polygon id="Rectangle-6" fill="url(#linearGradient-4)" fill-rule="nonzero" opacity="0.400000006" points="730 649 1100 649 1100 681 730 681"></polygon>
+        <rect id="Rectangle" fill="#DCFB50" x="730" y="649" width="3" height="32"></rect>
+        <g id="Group-3" transform="translate(1224.000000, 309.000000)">
+            <g id="Group">
+                <polygon id="Rectangle-6" fill="url(#linearGradient-5)" fill-rule="nonzero" opacity="0.400000006" points="0 0 665 0 665 32 0 32"></polygon>
+                <rect id="Rectangle" fill="#DCFB50" x="0" y="0" width="3" height="32"></rect>
+            </g>
+        </g>
+        <g id="Group-3" transform="translate(730.000000, 309.000000)">
+            <g id="Group">
+                <polygon id="Rectangle-6" fill="url(#linearGradient-6)" fill-rule="nonzero" opacity="0.400000006" points="0 0 464 0 464 32 0 32"></polygon>
+                <rect id="Rectangle" fill="#DCFB50" x="0" y="0" width="3.19266055" height="32"></rect>
+            </g>
+        </g>
+        <polygon id="Rectangle-6" fill="url(#linearGradient-3)" fill-rule="nonzero" opacity="0.400000006" points="1130 649 1495 649 1495 681 1130 681"></polygon>
+        <rect id="Rectangle-Copy-9" opacity="0.600000024" x="1437" y="701" width="45" height="28" rx="2"></rect>
+        <rect id="Rectangle" fill="#DCFB50" x="1130" y="649" width="3" height="32"></rect>
+        <polygon id="Rectangle-6" fill="url(#linearGradient-7)" fill-rule="nonzero" opacity="0.400000006" points="60 749 670 749 670 781 60 781"></polygon>
+        <rect id="Rectangle-Copy" fill="#DCFB50" x="60" y="749" width="3" height="32"></rect>
+        <rect id="Rectangle-Copy-7" opacity="0.600000024" x="405" y="753" width="45" height="24"></rect>
+        <rect id="Rectangle-6" fill="url(#linearGradient-7)" fill-rule="nonzero" opacity="0.400000006" x="60" y="190" width="610" height="32"></rect>
+        <rect id="Rectangle" fill="#DCFB50" x="60" y="190" width="3" height="32"></rect>
+        <path d="M32,91 C31.4477153,91 31,91.4477153 31,92 L31,138 C31,138.552285 31.4477153,139 32,139 L1888,139 C1888.55228,139 1889,138.552285 1889,138 L1889,92 C1889,91.4477153 1888.55228,91 1888,91 L32,91 Z" id="矩形-copy" stroke="#00B9F8" stroke-width="2" fill-opacity="0.5" fill="url(#linearGradient-8)" opacity="0.300000012"></path>
+    </g>
+</svg>
