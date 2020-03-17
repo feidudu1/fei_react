@@ -4,6 +4,7 @@ import './App.css';
 import {ReactPropsDemo} from '../../components/ReactPropsDemo'
 import Toolbar from '../../components/Toolbar'
 import {ThemeContext} from '../../components/contextConfig'
+import MouseTracker from '../../components/MouseTracker'
 
 class App extends Component {
   render() {
@@ -21,6 +22,8 @@ class App extends Component {
         <ThemeContext.Provider value="dark">
           <Toolbar/>
         </ThemeContext.Provider>
+
+        <MouseTracker />
       </div>
     );
   }
