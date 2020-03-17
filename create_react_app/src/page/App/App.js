@@ -5,6 +5,10 @@ import {ReactPropsDemo} from '../../components/ReactPropsDemo'
 import Toolbar from '../../components/Toolbar'
 import {ThemeContext} from '../../components/contextConfig'
 import MouseTracker from '../../components/MouseTracker'
+import WithMouse from '../../components/WithMouse'
+import Cat from '../../components/Cat'
+
+const WithMouseWrapper = WithMouse(Cat)
 
 class App extends Component {
   render() {
@@ -23,7 +27,10 @@ class App extends Component {
           <Toolbar/>
         </ThemeContext.Provider>
 
+        {/* 纯render props  */}
         <MouseTracker />
+        {/* HOC + render props */}
+        <WithMouseWrapper />
       </div>
     );
   }
