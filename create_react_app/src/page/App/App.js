@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
 import {ReactPropsDemo} from '../../components/ReactPropsDemo'
+import Toolbar from '../../components/Toolbar'
+import {ThemeContext} from '../../components/contextConfig'
 
 class App extends Component {
   render() {
@@ -15,6 +17,10 @@ class App extends Component {
           To get started, edit <code>src/App.js</code> and save to reload.
         </p>
         <ReactPropsDemo name="feifei" age={43}/>
+
+        <ThemeContext.Provider value="dark">
+          <Toolbar/>
+        </ThemeContext.Provider>
       </div>
     );
   }
