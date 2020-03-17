@@ -12,3 +12,7 @@ https://umijs.org/zh/guide/getting-started.html
 ## umi_cli
 官网/用脚手架创建项目
 create-umi
+
+## create_react_app
+用create react app脚手架搭建，https://www.html.cn/create-react-app/docs/getting-started/
+用来学习react相关知识
