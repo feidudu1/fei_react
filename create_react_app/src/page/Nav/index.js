@@ -13,6 +13,7 @@ export default function Home() {
         {/* <li><Link to={`${match.url}/app`}>App</Link></li> */}
         <li><Link to="/pureComponent">pureComponent</Link></li>
         <li><Link to="/youzan">youzan utils</Link></li>
+        <li><Link to="/hook">hook</Link></li>
       </div>
     </div>
   )
