@@ -15,7 +15,7 @@ class Com extends Component {
 
     return (
       <div className="App">
-        mobx: 
+        decorator: 
       </div>
     );
   }

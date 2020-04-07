@@ -6,7 +6,7 @@ import Home from './page/Home/index';
 import PureComponent from './page/PureComponent/index';
 import YouzanUtils from './page/YouzanUtils/index';
 import Hooks from './page/Hooks/index';
-import Mobx from './page/Mobx/index';
+import Decorator from './page/Decorator/index';
 import './index.css';
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom'
 
@@ -21,7 +21,7 @@ ReactDOM.render((
       <Route path="/pureComponent"><PureComponent/></Route>
       <Route path="/youzan"><YouzanUtils/></Route>
       <Route path="/hook"><Hooks/></Route>
-      <Route path="/mobx"><Mobx/></Route>
+      <Route path="/decorator"><Decorator/></Route>
     </Switch>
   </Router>
 ),document.getElementById('root'));

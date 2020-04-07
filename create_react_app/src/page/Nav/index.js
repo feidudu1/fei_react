@@ -14,7 +14,7 @@ export default function Home() {
         <li><Link to="/pureComponent">pureComponent</Link></li>
         <li><Link to="/youzan">youzan utils</Link></li>
         <li><Link to="/hook">hook</Link></li>
-        <li><Link to="/mobx">mobx</Link></li>
+        <li><Link to="/decorator">decorator</Link></li>
       </div>
     </div>
   )
