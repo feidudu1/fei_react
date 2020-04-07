@@ -11,6 +11,7 @@ export default function Home() {
         <li><Link to="/">Home</Link></li>s
         <li><Link to="/app">App</Link></li>
         <li><Link to="/ts1">基础类型</Link></li>
+        <li><Link to="/mobx1">mobx1</Link></li>
       </div>
     </div>
   )

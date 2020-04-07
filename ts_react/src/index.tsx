@@ -7,7 +7,8 @@ import * as serviceWorker from './serviceWorker';
 
 import Nav from './page/Nav';
 import Home from './page/Home';
-import Ts1 from './page/Ts1';
+import Ts1 from './page/Ts1/index';
+import Mobx1 from './page/Mobx1/index';
 
 ReactDOM.render(
   <React.StrictMode>
@@ -19,6 +20,7 @@ ReactDOM.render(
       <Route exact path="/"><Home/></Route> // 这里必须加上exact属性，不然会覆盖掉/app的路由，即/app显示的还是/的页面
       <Route path="/app"><App/></Route>
       <Route path="/ts1"><Ts1/></Route>
+      <Route path="/mobx1"><Mobx1/></Route>
     </Switch>
   </Router>
   </React.StrictMode>,
