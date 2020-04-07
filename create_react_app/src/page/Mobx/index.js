@@ -1,29 +1,24 @@
-import React from 'react';
-import {observable, action} from 'mobx';
-import {observer} from 'mobx-react';
+import React, { Component } from 'react';
+// import {observable} from 'mobx';
 
-function Example() {
-  let appState = observable({
-    timer: 0
-  })
-
-  setInterval(action(() => {
-    appState.timer += 1
-  }), 1000);
-
-  let App = observer(({appState}) => {
-    return (
-      <div>
-        <h1>{appState.timer}</h1>
-      </div>
-    );
-  })
-  
-  return (
-    <App appState={appState} />
-  )
-  
-  
+function dec(id){
+  console.log('evaluated', id);
+  return (target, property, descriptor) => console.log('executed', id, target, property, descriptor);
 }
 
-export default Example;
+class Com extends Component {
+  @dec(1)
+  @dec(2)
+  method(){}
+  
+  render() {
+
+    return (
+      <div className="App">
+        mobx: 
+      </div>
+    );
+  }
+}
+
+export default Com;
