@@ -8,8 +8,9 @@ export default function Home() {
   return (
     <div className="App">
       <div role="nav">
-        <li><Link to="/">Home</Link></li>
+        <li><Link to="/">Home</Link></li>s
         <li><Link to="/app">App</Link></li>
+        <li><Link to="/ts1">基础类型</Link></li>
       </div>
     </div>
   )
