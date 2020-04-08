@@ -15,6 +15,8 @@ export default function Home() {
         <li><Link to="/youzan">youzan utils</Link></li>
         <li><Link to="/hook">hook</Link></li>
         <li><Link to="/decorator">decorator</Link></li>
+        <li><Link to="/mobx">mobx todolist</Link></li>
+        <li><Link to="/mobx_basic">mobx 基础 可以用于练习</Link></li>
       </div>
     </div>
   )
