@@ -1,0 +1,32 @@
+.bottomWrapper {
+  display: flex;
+  justify-content: space-between;
+  margin: 10px 0 5px;
+}
+.bottomRightWrapper {
+  display: flex;
+}
+.price {
+  margin-right: 10px;
+}
+.name {
+  text-overflow: ellipsis;
+  word-break: break-all;
+  white-space: nowrap;
+  overflow: hidden;
+  flex: 1;
+  margin-right: 10px;
+}
+.list {
+  position: absolute;
+  right: 10px;
+  border: 1px solid grey;
+  padding: 10px 20px;
+  top: 0;
+  background: #fff;
+}
+.submit {
+  text-align: center;
+  margin: 0 20px;
+  background: #f2efef;
+}
