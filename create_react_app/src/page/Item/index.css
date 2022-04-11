@@ -1,9 +1,9 @@
 .wrapper {
   padding: 8px;
   margin: 4px;
-  background-color: yellow;
   width: 200px;
   height: 240px;
+  border: 1px solid #333;
 }
 .imgWrapper {
   display: flex;

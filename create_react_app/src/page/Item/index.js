@@ -1,15 +1,13 @@
 import React, { Component } from 'react';
+import CartStore from '../singleService/CartStore';
+import {debounce} from '../utils/tool'
 import './index.css';
 
 class Item extends Component {
-
-  addCart = (item) => {
-    this.props.add(item)
-  }
+  debounceAdd = debounce(CartStore.addGood(this.props.data.id), 500)
 
   render() {
-    const {img, name, id, price} = this.props.data
-    console.log(111, id)
+    const {img, name, price} = this.props.data
     return (
       <div className="wrapper">
         <div>
@@ -20,7 +18,7 @@ class Item extends Component {
               <div className="price">
                 {price}
                 </div>
-                <button className="cart" onClick={() => this.addCart(id)}>加入购物车</button>
+                <button className="cart" onClick={this.debounceAdd}>加入购物车</button>
               </div>
           </div>
         </div>

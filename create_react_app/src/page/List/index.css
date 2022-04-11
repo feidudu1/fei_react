@@ -4,9 +4,9 @@
   margin: 8px;
   box-sizing: border-box;
 }
-.itemWrapper {
+/* .itemWrapper {
   border: 1px solid red;
-}
+} */
 .itemWrapper:first {
   margin-left: 0;
 }
